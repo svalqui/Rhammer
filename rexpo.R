@@ -41,3 +41,12 @@ DiscoverListContent <- function(ObjList, spacing = ""){
   } # End for
 
 } # End function
+
+
+DiscoverObj <- function(Obj, spacing = ""){
+if (typeof(Obj) == "list"){
+      print(paste(deparse(substitute(Obj)), "- list"))
+      DiscoverListContent(Obj, "  ")
+    } # End if
+
+} # End function
