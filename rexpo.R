@@ -47,7 +47,7 @@ DiscoverObj <- function(Obj, spacing = ""){
   spaces <- spacing
   if (typeof(Obj) == "list"){
     print(paste0(spaces, deparse(substitute(Obj)), " - list"))
-    spaces <- spaces + "  "
+    spaces <- paste0(spaces, "  ")
     for (element in Obj){
       DiscoverObj(element, spaces)
     } # End for
