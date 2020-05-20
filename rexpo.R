@@ -44,9 +44,25 @@ DiscoverListContent <- function(ObjList, spacing = ""){
 
 
 DiscoverObj <- function(Obj, spacing = ""){
-if (typeof(Obj) == "list"){
-      print(paste(deparse(substitute(Obj)), "- list"))
-      DiscoverListContent(Obj, "  ")
-    } # End if
+  spaces <- spacing
+  if (typeof(Obj) == "list"){
+    print(paste0(spaces, deparse(substitute(Obj)), " - list"))
+    spaces <- spaces + "  "
+    for (element in Obj){
+      DiscoverObj(element, spaces)
+    } # End for
+  } else if (typeof(Obj) == "logical"){
+    print(paste0(spaces, deparse(substitute(Obj)), " - logical"))
+  } else if (typeof(Obj) == "integer"){
+    print(paste0(spaces, deparse(substitute(Obj)), " - integer"))
+  } else if (typeof(Obj) == "double"){
+    print(paste0(spaces, deparse(substitute(Obj)), " - double"))
+  } else if (typeof(Obj) == "complex"){
+    print(paste0(spaces, deparse(substitute(Obj)), " - complex"))
+  } else if (typeof(Obj) == "character"){
+    print(paste0(spaces, deparse(substitute(Obj)), " - character"))
+  } else if (typeof(Obj) == "raw"){
+    print(paste0(spaces, deparse(substitute(Obj)), " - raw"))
+  }
 
 } # End function
