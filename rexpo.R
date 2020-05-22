@@ -44,7 +44,7 @@ DiscoverListContent <- function(ObjList, spacing = ""){
 } # End function
 
 
-DiscoverObj <- function(Obj, spacing = ""){
+DiscoverObjByType <- function(Obj, spacing = ""){
   spacesDO <- spacing
   if (typeof(Obj) == "list"){
     idx <- 0
@@ -68,3 +68,10 @@ DiscoverObj <- function(Obj, spacing = ""){
   }
 
 } # End function
+
+DiscoverObjByClass <- function (Obj, spacing = ''){
+  if (inherits(Obj, "data.frame")){
+    print(paste0(spacing,deparse(substitute(Obj)), " - Data Frame"))
+    print(str(Obj))
+  }
+}
